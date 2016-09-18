@@ -77,7 +77,7 @@ def main(arg1, arg2, arg3):
                 if len(set(current_links) - set(path)) <= 0:
                     path = list(path[:-1])
                     if len(path) == 0:
-                        found = True
+                        not_found = False
                     current_page = path[-1]
                 else:
                     current_page = random.sample(set(current_links), 1)[0]
