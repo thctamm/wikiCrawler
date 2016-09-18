@@ -6,7 +6,7 @@ app = Flask(__name__)
 def find(source, target):
         res = master.main(source, target)
         print(res)
-        return flask.jsonify(**res):
+        return flask.jsonify(**res)
 
 if __name__ == "__main__":
         app.run()
