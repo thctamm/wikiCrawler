@@ -29,7 +29,6 @@ requests==2.7.0
 six==1.10.0
 texttable==0.8.4
 urllib3==1.13.1
-vboxapi==1.0
 websocket-client==0.37.0
 Werkzeug==0.11.11
 yum-metadata-parser==1.1.4
