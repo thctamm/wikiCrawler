@@ -11,7 +11,7 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 @cross_origin()
 def wiki(source, target):
     res = master.main(source, target)
-    print("wiki: " + res)
+    print("wiki: " + str(res))
     return jsonify(**res)
 
 @app.route("/views/")
@@ -20,7 +20,7 @@ def views():
     res = {}
     res["hillary"] = hillaryViews()
     res["trump"] = trumpViews()
-    print("views: " + res)
+    print("views: " + str(res))
     return jsonify(**res)
 
 @app.route("/articles/<source>")
@@ -29,7 +29,7 @@ def articles(source):
     res = {}
     res["hillary"] = hillaryArticles(source)
     res["trump"] = trumpArticles(source)
-    print("articles: " + res)
+    print("articles: " + str(res))
     return jsonify(**res)
 
 if __name__ == "__main__":
