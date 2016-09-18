@@ -89,7 +89,7 @@ def main(arg1, arg2, arg3):
         path_str = path_str + el + " -> "
     path_str = path_str[:len(path_str)-4]
     print(path_str)
-    return {'path': path_str, 'avg': float(total_dist)/float(iters)} 
+    return {'path': shortest_path, 'avg': float(total_dist)/float(iters)} 
 
 if __name__=='__main__':
     sys.exit(main(sys.argv[1], sys.argv[2], sys.argv[3]))
