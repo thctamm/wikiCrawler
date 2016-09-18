@@ -1,5 +1,5 @@
 from flask import Flask, jsonify
-from flask.ext.cors import CORS, cross_origin
+from flask_cors import CORS, cross_origin
 import master
 import articlesearch as AS
 app = Flask(__name__)
