@@ -49,9 +49,11 @@ def main(arg1, arg2, arg3):
         current_page = arg1
         last_page = current_page
         path = [current_page]
+        visited = []
         dist = 1
         not_found = True
         while not_found:
+            visited.append(current_page)
             print("Exploring: " + current_page)
             found = False
             current_links = callback(requests.get(url+current_page))
@@ -66,7 +68,7 @@ def main(arg1, arg2, arg3):
                 print(path_str[:len(path_str)-4])
                 not_found = False
             for level in target_links:
-                intersection = set(level).intersection(current_links) - set(path)
+                intersection = set(level).intersection(current_links) - set(visited)
                 if len(intersection) >= 1:
                     found = True
                     current_page = random.sample(intersection, 1)[0]
@@ -74,7 +76,7 @@ def main(arg1, arg2, arg3):
                     dist +=1
                     break;
             if not found :
-                if len(set(current_links) - set(path)) <= 0:
+                if len(set(current_links) - set(visited)) <= 0:
                     path = list(path[:-1])
                     if len(path) == 0:
                         not_found = False
