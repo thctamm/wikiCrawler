@@ -1,1 +1,0 @@
-George H.W. Bush
