@@ -1,7 +1,7 @@
 from flask import Flask, jsonify
 from flask.ext.cors import CORS, cross_origin
 import master
-import article_search as AS
+import articlesearch as AS
 app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
@@ -14,23 +14,23 @@ def wiki(source, target):
     print("wiki: " + res)
     return jsonify(**res)
 
-# @app.route("views/")
-# @cross_origin()
-# def views():
-#     res = {}
-#     res["hillary"] = hillaryViews()
-#     res["trump"] = trumpViews()
-#     print("views: " + res)
-#     return jsonify(**res)
-#
-# @app.route("articles/<source>")
-# @cross_origin()
-# def articles(source):
-#     res = {}
-#     res["hillary"] = hillaryArticles(source)
-#     res["trump"] = trumpArticles(source)
-#     print("articles: " + res)
-#     return jsonify(**res)
+@app.route("views/")
+@cross_origin()
+def views():
+    res = {}
+    res["hillary"] = hillaryViews()
+    res["trump"] = trumpViews()
+    print("views: " + res)
+    return jsonify(**res)
+
+@app.route("articles/<source>")
+@cross_origin()
+def articles(source):
+    res = {}
+    res["hillary"] = hillaryArticles(source)
+    res["trump"] = trumpArticles(source)
+    print("articles: " + res)
+    return jsonify(**res)
 
 if __name__ == "__main__":
     app.run()
