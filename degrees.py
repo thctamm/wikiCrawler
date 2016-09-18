@@ -77,10 +77,11 @@ def main(arg1, arg2, arg3):
                     break;
             if not found :
                 if len(set(current_links) - set(visited)) <= 0:
-                    path = list(path[:-1])
-                    if len(path) == 0:
+                    if len(path) <= 1:
                         not_found = False
-                    current_page = path[-1]
+                    else:
+                        path = list(path[:-1])
+                        current_page = path[-1]
                 else:
                     current_page = random.sample(set(current_links), 1)[0]
 
