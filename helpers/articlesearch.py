@@ -12,6 +12,7 @@ def getArticles(query, name):
     start = unicode(date.today() + timedelta(-3))
     end = unicode(date.today())
     er = EventRegistry()
+    EventRegistry.login(er, "abigaillyons@college.harvard.edu", "Hackmit16")
     q = QueryArticles(lang=["eng"], dateStart = unicode(start), dateEnd = unicode(end))
     q.addConcept(er.getConceptUri(name))
     q.addRequestedResult(RequestArticlesInfo(count=20))
@@ -51,6 +52,7 @@ def getViews(name, url):
     start = unicode(date.today() + timedelta(-30))
     end = unicode(date.today())
     er = EventRegistry()
+    EventRegistry.login(er, "abigaillyons@college.harvard.edu", "Hackmit16")
     q = GetCounts(er.getConceptUri(name),
         source = "news",
         startDate = start, endDate = end)
