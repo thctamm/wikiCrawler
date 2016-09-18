@@ -28,7 +28,6 @@ PyYAML==3.12
 requests==2.7.0
 six==1.10.0
 texttable==0.8.4
-unity-lens-photos==1.0
 urlgrabber==3.9.1
 urllib3==1.13.1
 vboxapi==1.0
