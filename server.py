@@ -4,7 +4,9 @@ app = Flask(__name__)
 
 @app.route("/<source>/<target>")
 def find(source, target):
-        return master.main(source, target)
+        res = master.main(source, target)
+        print(res)
+        return res
 
 if __name__ == "__main__":
         app.run()
