@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify
 import master
 app = Flask(__name__)
 
@@ -6,7 +6,7 @@ app = Flask(__name__)
 def find(source, target):
         res = master.main(source, target)
         print(res)
-        return Flask.jsonify(**res)
+        return jsonify(**res)
 
 if __name__ == "__main__":
         app.run()
