@@ -1,4 +1,4 @@
-import string, json, re, csv, os.path
+import string, json, re, csv, os.path, sys
 import initializer
 import degrees
 
@@ -24,3 +24,6 @@ def main(source, target):
                 writer.writerow(["./data/" + target + "_" + str(i) + ".csv"])
 
     return degrees.main(source, './data/' + target + ".csv", iters)
+
+if __name__=='__main__':
+    sys.exit(main(sys.argv[1], sys.argv[2]))
