@@ -6,19 +6,20 @@ def main(arg1, arg2):
     target_links = []
     targets = []
     def callback(response):
-        if response.ok:
-            body = json.loads(response.text)
-            if 'query' in body:
-                if 'pages' in body['query']:
-                    for key, page in body['query']['pages'].items():
-                        if 'revisions' in page:
-                            if '*' in page['revisions'][0]:
-                                content = page['revisions'][0]['*']
-                                links = re.findall(r"\[\[[^\[\]]+\]\]", content)
-                                for link in links:
-                                    parsed_link = link[2:-2].split('|')[0].replace(u'\u2013', '')
-                                    parsed_link = filter(lambda x: x in printable, parsed_link)
-                                    target_links.append(parsed_link)
+        if response:
+            if response.ok:
+                body = json.loads(response.text)
+                if 'query' in body:
+                    if 'pages' in body['query']:
+                        for key, page in body['query']['pages'].items():
+                            if 'revisions' in page:
+                                if '*' in page['revisions'][0]:
+                                    content = page['revisions'][0]['*']
+                                    links = re.findall(r"\[\[[^\[\]]+\]\]", content)
+                                    for link in links:
+                                        parsed_link = link[2:-2].split('|')[0].replace(u'\u2013', '')
+                                        parsed_link = filter(lambda x: x in printable, parsed_link)
+                                        target_links.append(parsed_link)
 
 
     with open(arg1, 'rb') as csvfile:
