@@ -7,14 +7,14 @@ cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 
-@app.route("wiki/<source>/<target>")
+@app.route("/wiki/<source>/<target>")
 @cross_origin()
 def wiki(source, target):
     res = master.main(source, target)
     print("wiki: " + res)
     return jsonify(**res)
 
-@app.route("views/")
+@app.route("/views/")
 @cross_origin()
 def views():
     res = {}
@@ -23,7 +23,7 @@ def views():
     print("views: " + res)
     return jsonify(**res)
 
-@app.route("articles/<source>")
+@app.route("/articles/<source>")
 @cross_origin()
 def articles(source):
     res = {}
